@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import {BrowserRouter,Route,Routes} from "react-router-dom"
 import User_layout from './components/layouts/User_layout'
 import Admin_layout from './components/layouts/Admin_layout'
+import Topbar_layout from './components/layouts/Topbar_layout'
+import Header from './components/common/Header'
 
 
 function App() {
@@ -13,8 +15,8 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<User_layout/>}></Route>
-      <Route path='/admin' element={<Admin_layout/>}></Route>
+      <Route path='/' element={<Header/>}></Route>
+      <Route path='/admin' element={<Header/>}></Route>
     </Routes>
     </BrowserRouter>
     
