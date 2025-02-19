@@ -7,7 +7,7 @@ const Header = () => {
         { /*topbar */}
         <Topbar_layout/>
         { /*navbar */}
-        <Navbar/>
+        <Navbar />
 
         { /*cartdrawer */}
     </header>
