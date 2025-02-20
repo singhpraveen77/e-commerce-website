@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className='w-full flex items-center justify-between py-4 px-5'>
+        <nav className='w-full flex items-center justify-between py-4 px-5 bg-white'>
             <div className='flex-none text-left'>
                 <Link to="/" className="text-2xl font-medium">
                     Rabbit
