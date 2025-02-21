@@ -8,7 +8,7 @@ const Hero = () => {
           VACATION <br /> READY
         </h1>
         <p className="text-sm mt-2">explore our vacation ready outfits with fast world wide shopping</p>
-        <button className='mt-4 bg-green-500 text-black font-bold py-2 px-4 rounded'>sign-up</button>
+        <button className='mt-4 bg-red-500 text-black font-bold py-2 px-4 rounded'>sign-up</button>
     </div>
   )
 }
