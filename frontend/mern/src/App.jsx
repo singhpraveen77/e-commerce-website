@@ -6,6 +6,7 @@ import Header from './components/common/Header'
 import Hero from './components/layouts/Hero'
 import Page2_layout from './components/layouts/Page2_layout'
 import Page3_layout from './components/layouts/Page3_layout'
+import Page4_layout from './components/layouts/Page4_layout'
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Hero />
           <Page2_layout />
           <Page3_layout />
+          <Page4_layout />
 
         </>
       }></Route>
