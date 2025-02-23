@@ -6,7 +6,7 @@ let connect=async()=>{
     await mongoose.connect("mongodb://127.0.0.1:27017/e-web")
     .then(()=>{
         console.log("data base connected  !!")
-    }).catch((err)=>{
+    }).catch((err)=> {
         console.log("error in databases",err);
     })
     

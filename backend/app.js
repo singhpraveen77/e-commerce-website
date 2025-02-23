@@ -15,7 +15,6 @@ let createUser=async ()=>{
         email:"fghj",
         password:"123"
     })
-
     await newUser.save();
     xyz=newUser;
     console.log(newUser);
