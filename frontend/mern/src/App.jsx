@@ -10,6 +10,8 @@ import Page4_layout from './components/layouts/Page4_layout'
 import Page5_layout from './components/layouts/Page5_layout'
 import Page6_layout from './components/layouts/Page6_layout'
 import Footer from './components/common/Footer'
+import Login from './components/layouts/Login'
+import Create from './components/layouts/Create'
 
 
 
@@ -33,6 +35,8 @@ function App() {
 
         </>
       }></Route>
+      {/* <Route path='/login' element={<Login/>}/> */}
+      <Route path='/register' element={<Create/>}/>
 
     </Routes>
     </BrowserRouter>

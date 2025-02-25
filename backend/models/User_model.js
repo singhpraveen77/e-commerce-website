@@ -16,6 +16,11 @@ let User_Schema=new mongoose.Schema({
         type:String,
         required:true
     },
+    isadmin:{
+        type:Boolean,
+        default:false
+        // required:true
+    },
     profile:{
         type:String,
         // required:true
