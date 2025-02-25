@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 //routes 
-app.use("/register",createRoute);
+app.use("/registert ",createRoute);
 app.use("/login",loginRoute);
 
 const port = process.env.PORT || 5006
