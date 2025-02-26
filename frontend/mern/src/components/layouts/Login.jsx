@@ -1,24 +1,36 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
-
-    const [user, setUser]=useState("");
-    const [pass, setPass]=useState("")
-
-    const handleSubmit = async(e)=>{
-        e.preventDefault();
-        console.log(e.target[0].value);
-        console.log(pass);
+function Login() {
+    const [formData, setFormData] = useState({ email: "", password: ""});
+    // const [error, setError] = useState(null);
+    const navigate = useNavigate();
+  
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log("Form Data:", formData);
+      try {
+        const res = await axios.post("http://localhost:5005/login", formData);
+        alert("loged in !");
         
-    }
+        navigate('/');
+      } catch (error) {
+        setError(error.response ? error.response.data.message : "An error occurred");
+        alert(error.response ? error.response.data.message : "An error occurred");
+      }
+    }; 
     
   return (
     <div className="bg-zinc-800 h-screen flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold text-yellow-400 mb-6">login acc.</h1>
         <form onSubmit={handleSubmit} className="bg-black p-6 rounded-xl shadow-md w-[40vw]">
-            <input className="shadow bg-gray-800 mb-2 appearance-none border border-gray-300 rounded w-full py-3 px-3 text-gray-200 leading-tight focus:outline-none focus:ring focus:ring-blue-500" type="email" placeholder="email" onChange={(e)=>setUser(e.target.value)} name="email" value={user} required />
+            <input onChange={handleChange} className="shadow bg-gray-800 mb-2 appearance-none border border-gray-300 rounded w-full py-3 px-3 text-gray-200 leading-tight focus:outline-none focus:ring focus:ring-blue-500" type="text" placeholder="email" name="email" value={formData.email} required />
 
-            <input className="shadow bg-gray-800 mb-2 appearance-none border border-gray-300 rounded w-full py-3 px-3 text-gray-200 leading-tight focus:outline-none focus:ring focus:ring-blue-500" type="password" placeholder="pass.."  onChange={(e)=>setPass(e.target.value)} value={pass} name="password" required />
+            <input onChange={handleChange} className="shadow bg-gray-800 mb-2 appearance-none border border-gray-300 rounded w-full py-3 px-3 text-gray-200 leading-tight focus:outline-none focus:ring focus:ring-blue-500" type="password" placeholder="pass.." name="password" value={formData.password} required />
 
             <input type="submit" className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
         </form>
