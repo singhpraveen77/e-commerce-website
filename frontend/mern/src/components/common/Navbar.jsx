@@ -35,24 +35,27 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className='flex text-right gap-1'>
-                <Search />
-                <Link to="/profile" className="hover:text-black">
-                    <HiOutlineUser className="h-6 w-6 text-gray-700" />
-                </Link>
-                <button onClick={handleCartToggle} className="relative flex items-center justify-center p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-                    <HiOutlineShoppingBag className="h-6 w-6 text-gray-700" />
-                    <span className='absolute top-[-10px] right-[-10px] bg-[#ea2e0e] text-white text-xs rounded-full px-2 py-0.5'>4</span>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded uppercase text-sm">
+                    <Link to="/login" className="no-underline text-white">Login</Link>
                 </button>
-                {isOpen && <Cart_drawer />}
+                <button className="bg-green-500 hover:bg-green-700 text-white font-medium py-2 px-4 rounded uppercase text-sm">
+                    <Link to="/register" className="no-underline text-white">Register</Link>
+                </button>
                 <button className='md:hidden flex items-center justify-center p-2 bg-gray-200 rounded-full hover:bg-gray-300'>
                     <HiOutlineBars3BottomRight className="h-6 w-6 text-gray-700" />
                 </button>
-                <Link to="/login" className="text-gray-700 hover:text-black text-sm font-medium uppercase">
-                    Login
+
+                {isOpen && <Cart_drawer />}
+
+                <button onClick={handleCartToggle} className=" " style={{ zIndex: 5 }}>
+                    <HiOutlineShoppingBag className=" text-gray-700" />
+                    <span className=' top-[-10px] right-[-10px] bg-[#ea2e0e] text-white text-xs rounded-full px-2 py-0.5'>4</span>
+                </button>
+
+                <Link to="/profile" className="hover:text-black">
+                    <HiOutlineUser className="h-7 w-7 mt-1.5  text-gray-700" />
                 </Link>
-                <Link to="/register" className="text-gray-700 hover:text-black text-sm font-medium uppercase">
-                    Register
-                </Link>
+                <Search />
             </div>
         </nav>
     )
