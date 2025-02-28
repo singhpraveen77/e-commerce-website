@@ -1,24 +1,32 @@
 import React from 'react'
 import { HiOutlineUser, HiOutlineShoppingBag, HiOutlineBars3BottomRight, HiMiniXMark } from 'react-icons/hi2'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import Search from './Search'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleCartDrawer } from '../../redux/cartSlice'
 import { Cart_drawer } from '../layouts/Cart_drawer'
+import { RiHome2Fill } from "react-icons/ri";
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const isOpen = useSelector(state => state.cart.isOpen);
+    const navigate=useNavigate();
     const handleCartToggle = () => {
         dispatch(toggleCartDrawer());
+    }
+    function handlehome(){
+        navigate("/");
     }
 
     return (
         <nav className='w-full flex items-center justify-between py-4 px-5 bg-white'>
-            <div className='flex-none text-left'>
-                <Link to="/" className="text-2xl font-medium">
+            <div className='flex-none  text-left  flex items-center'>
+                <Link to="/" className="text-2xl font-medium ">
                     Rabbit
                 </Link>
+                <RiHome2Fill className='ml-3'
+                onClick={handlehome} />
             </div>
             <div className='hidden md:flex flex-1 justify-center space-x-6'>
                 <Link to="#" className="text-gray-700 hover:text-black text-sm font-medium uppercase">

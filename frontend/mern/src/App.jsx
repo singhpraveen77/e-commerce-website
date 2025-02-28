@@ -21,10 +21,10 @@ function App() {
   return (
     <>
     <BrowserRouter>
+      <Header />
     <Routes>
       <Route path='/' element={
         <>
-          <Header />
           <Hero />
           <Page2_layout />
           <Page3_layout />
