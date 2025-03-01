@@ -12,6 +12,7 @@ import Page6_layout from './components/layouts/Page6_layout'
 import Footer from './components/common/Footer'
 import Login from './components/layouts/Login'
 import Create from './components/layouts/Create'
+import Profile from './components/layouts/Profile'
 
 
 
@@ -37,6 +38,7 @@ function App() {
       }></Route>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Create/>}/>
+      <Route path='/profile' element={<Profile/>}/>
 
     </Routes>
     </BrowserRouter>

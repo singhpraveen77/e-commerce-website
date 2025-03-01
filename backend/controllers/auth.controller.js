@@ -1,9 +1,10 @@
-const express=require("express")
 const User=require("../models/User_model");
+
 const handleLogin=async (req, res) => {
     let {email,password}=req.body;
     try {
         let checkuser=await User.findOne({email});
+        console.log("backend hit")
     console.log(checkuser);
     if(!checkuser)return res.send("no such user exist")
     if(checkuser.password!==password)return res.send("worng pass");
@@ -15,16 +16,19 @@ const handleLogin=async (req, res) => {
 }
 
 const handlecreateuser=async(req,res)=>{
+    let {username,email,password}=req.body;
+    console.log(username);
+    
     try{
-        let {username,email,password,isadmin}=req.body;
         let usercheck =await  User.findOne({email});
         if(usercheck)return res.send(usercheck);
         
         let newuser= await User.create({
-            username,email,password,isadmin
+            username,email,password
         })
         await newuser.save();
-        res.send(newuser)
+        console.log(newuser);
+        res.send(newuser);
 
     }
     catch(err){

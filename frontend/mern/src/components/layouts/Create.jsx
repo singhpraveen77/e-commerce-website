@@ -3,25 +3,41 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 function Create() {
-  const [formData, setFormData] = useState({ username: "", email: "", password: ""});
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    switch (e.target.name) {
+      case "username":
+        setUsername(e.target.value);
+        break;
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "password":
+        setPassword(e.target.value);
+        break;
+      default:
+        break;
+    }
   };
 
   const handleSubmit = async (e) => {
+    console.log("check working");
+    
     e.preventDefault();
-    console.log("Form Data:", formData);
+    // console.log("Form Data:", formData);
     try {
-      const res = await axios.post("http://localhost:5005/register", formData);
+      const res = await axios.post("http://localhost:5050/register", { username, email, password });
       alert("User created successfully!");
       setError(null);
       navigate('/');
     } catch (error) {
-      setError(error.response ? error.response.data.message : "An error occurred");
-      alert(error.response ? error.response.data.message : "An error occurred");
+       console.log(error);
+       
     }
   }; 
 
