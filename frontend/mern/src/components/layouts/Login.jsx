@@ -21,9 +21,10 @@ function Login() {
       e.preventDefault();
       try {
           console.log("frontend hit :")
-          const res = await axios.post("http://localhost:5050/login", { email, password });
+          const res = await axios.post("http://localhost:5050/auth/login", { email, password });
             console.log("Email:", email, "Password:", password);
         alert("Logged in !");
+        ;
         
         navigate('/');
       } catch (error) {

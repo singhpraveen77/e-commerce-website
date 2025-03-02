@@ -29,10 +29,10 @@ function Create() {
     console.log("check working");
     
     e.preventDefault();
-    // console.log("Form Data:", formData);
     try {
-      const res = await axios.post("http://localhost:5050/register", { username, email, password });
-      alert("User created successfully!");
+      const res = await axios.post("http://localhost:5050/auth/register", { username, email, password });
+      alert("User created successfully!");    
+      localStorage.setItem("token", res.data.token);              
       setError(null);
       navigate('/');
     } catch (error) {
